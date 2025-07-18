@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpr65qwn0cqwx"]
+
+[ext_resource type="Script" uid="uid://cpiok12jv02v3" path="res://volador.gd" id="1_ku7cm"]
+[ext_resource type="Texture2D" uid="uid://yl8ubvg3hwhk" path="res://Sprites/32x32-bat-sprite.png" id="2_rpoum"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8n8h"]
+atlas = ExtResource("2_rpoum")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_korub"]
+atlas = ExtResource("2_rpoum")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nihhg"]
+atlas = ExtResource("2_rpoum")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6nph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8n8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_korub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nihhg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fg5n5"]
+size = Vector2(41, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn6q4"]
+size = Vector2(47, 49)
+
+[node name="volador" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_ku7cm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.53125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_i6nph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, -12.5)
+shape = SubResource("RectangleShape2D_fg5n5")
+
+[node name="collision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
+position = Vector2(3.5, -10.5)
+shape = SubResource("RectangleShape2D_qn6q4")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.5708
+scale = Vector2(3, 3)
+target_position = Vector2(0.999969, 700)
+
+[connection signal="body_entered" from="collision" to="." method="_on_collision_body_entered"]

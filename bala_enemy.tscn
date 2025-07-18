@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdg4rlruwi2rb"]
+
+[ext_resource type="Script" uid="uid://c8e3xnfsslybq" path="res://bala_enemy.gd" id="1_im2hn"]
+[ext_resource type="Texture2D" uid="uid://cgy3xhx8ec7g3" path="res://Sprites/69893238cbb23d4f72dd2564d7afdd38.png" id="2_wme3y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4te7a"]
+radius = 2.0
+height = 10.0
+
+[node name="bala_enemy" type="Area2D"]
+script = ExtResource("1_im2hn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, 2.25)
+scale = Vector2(0.0277778, 0.0430556)
+texture = ExtResource("2_wme3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4te7a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

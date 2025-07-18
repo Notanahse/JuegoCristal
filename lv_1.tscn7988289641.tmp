@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://diroinonchoy3"]
+
+[ext_resource type="Texture2D" uid="uid://c8jb0fslixt7x" path="res://Sprites/Sprite-0001.png" id="1_ydort"]
+[ext_resource type="PackedScene" uid="uid://84sjfck5ckx2" path="res://player.tscn" id="2_gmob6"]
+[ext_resource type="Texture2D" uid="uid://doc6dowil4dxw" path="res://Sprites/backgr.jpg" id="2_m5q4o"]
+[ext_resource type="PackedScene" uid="uid://ctmcwiosgnjo1" path="res://enemy.tscn" id="3_if3o6"]
+[ext_resource type="PackedScene" uid="uid://bdg4rlruwi2rb" path="res://bala_enemy.tscn" id="5_c4o0f"]
+[ext_resource type="Script" uid="uid://c8e3xnfsslybq" path="res://bala_enemy.gd" id="6_3c8v5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gmob6"]
+texture = ExtResource("1_ydort")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_if3o6"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gmob6")
+
+[node name="lv1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_gmob6")]
+position = Vector2(119, 499)
+collision_layer = 2
+collision_mask = 3
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-16, 55)
+offset = Vector2(67.645, -130.925)
+zoom = Vector2(2.2, 2.2)
+
+[node name="Backgr" type="Sprite2D" parent="Player/Camera2D"]
+z_index = -1
+position = Vector2(70, -135)
+scale = Vector2(0.6475, 0.74)
+texture = ExtResource("2_m5q4o")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_if3o6")
+format = 2
+layer_0/tile_data = PackedInt32Array(2555905, 0, 0, 2555906, 0, 0, 2555907, 0, 0, 2555908, 0, 0, 2555909, 0, 0, 2555910, 0, 0, 2555911, 0, 0, 2555912, 0, 0, 2555913, 0, 0, 2621449, 0, 0, 2621450, 0, 0, 2621451, 0, 0, 2621452, 0, 0, 2621453, 0, 0, 2621454, 0, 0, 2621455, 0, 0, 2621456, 0, 0, 2621457, 0, 0, 2621458, 0, 0, 2621459, 0, 0, 2621460, 0, 0, 2621461, 0, 0, 2555926, 0, 0, 2555927, 0, 0, 2555928, 0, 0, 2555929, 0, 0, 2555930, 0, 0, 2555925, 0, 0, 2555924, 0, 0, 2555923, 0, 0, 2555922, 0, 0, 2555921, 0, 0, 2555920, 0, 0, 2555919, 0, 0, 2555918, 0, 0, 2555917, 0, 0, 2555916, 0, 0, 2555915, 0, 0, 2555914, 0, 0, 2621445, 0, 0, 2621444, 0, 0, 2621443, 0, 0, 2621442, 0, 0, 2621441, 0, 0, 2621448, 0, 0, 2621447, 0, 0, 2621446, 0, 0, 2686998, 0, 0, 2686999, 0, 0, 2687000, 0, 0, 2687001, 0, 0, 2687002, 0, 0, 2687003, 0, 0, 2687004, 0, 0, 2687005, 0, 0, 2687006, 0, 0, 2621470, 0, 0, 2621469, 0, 0, 2621468, 0, 0, 2621467, 0, 0, 2621466, 0, 0, 2621465, 0, 0, 2621464, 0, 0, 2621463, 0, 0, 2621462, 0, 0, 2687007, 0, 0, 2621471, 0, 0, 2621472, 0, 0, 2687008, 0, 0, 2687009, 0, 0, 2621473, 0, 0, 2621474, 0, 0, 2687010, 0, 0, 2621475, 0, 0, 2687011, 0, 0, 2621476, 0, 0, 2687012, 0, 0, 2621477, 0, 0, 2687013, 0, 0, 2621478, 0, 0, 2555942, 0, 0, 2555943, 0, 0, 2621479, 0, 0, 2621480, 0, 0, 2555944, 0, 0, 2555945, 0, 0, 2621481, 0, 0, 2555946, 0, 0, 2621482, 0, 0, 2621483, 0, 0, 2555947, 0, 0, 2555948, 0, 0, 2621484, 0, 0, 2555941, 0, 0, 2555949, 0, 0, 2555950, 0, 0, 2555951, 0, 0, 2555952, 0, 0, 2555953, 0, 0, 2555954, 0, 0, 2555955, 0, 0, 2555956, 0, 0, 2555957, 0, 0, 2555958, 0, 0, 2555959, 0, 0, 2555960, 0, 0, 2555961, 0, 0, 2555962, 0, 0, 2555963, 0, 0, 2555964, 0, 0, 2555965, 0, 0, 2555966, 0, 0, 2555967, 0, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("3_if3o6")]
+texture_filter = 1
+position = Vector2(382, 599)
+
+[node name="bala_enemy" parent="." instance=ExtResource("5_c4o0f")]
+script = ExtResource("6_3c8v5")
+
+[node name="Sprite2D" type="Sprite2D" parent="bala_enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bala_enemy"]
+
+[connection signal="body_entered" from="bala_enemy" to="Player" method="_on_body_entered"]
