@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpr65qwn0cqwx"]
 
-[ext_resource type="Script" uid="uid://cpiok12jv02v3" path="res://volador.gd" id="1_ku7cm"]
+[ext_resource type="Script" path="res://volador.gd" id="1_ku7cm"]
 [ext_resource type="Texture2D" uid="uid://yl8ubvg3hwhk" path="res://Sprites/32x32-bat-sprite.png" id="2_rpoum"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8n8h"]

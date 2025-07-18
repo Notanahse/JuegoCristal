@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://wdtpxukqrnm7"]
+
+[ext_resource type="Texture2D" uid="uid://cex0glgi5a1l6" path="res://Sprites/bolaFuego-export.png" id="1_o70jn"]
+[ext_resource type="Script" path="res://bola_fuego.gd" id="1_vdr8n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_21tcg"]
+radius = 47.0106
+
+[node name="BOLA FUEGO" type="CharacterBody2D"]
+script = ExtResource("1_vdr8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.3, 0.300781)
+texture = ExtResource("1_o70jn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_21tcg")

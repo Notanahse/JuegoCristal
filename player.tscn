@@ -1,6 +1,6 @@
 [gd_scene load_steps=91 format=3 uid="uid://84sjfck5ckx2"]
 
-[ext_resource type="Script" uid="uid://bijddlaxpf1wr" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://kw5v31pqkli6" path="res://Sprites/cristalguyata-Sheet-Sheet-ATTACKexport.png" id="2_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://ni6wm86lc8rd" path="res://Sprites/cristalguyata-Sheet.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://bavmkp246cnh3" path="res://Sprites/cristalguyatwa-Sheet.png" id="3_2hs0m"]
